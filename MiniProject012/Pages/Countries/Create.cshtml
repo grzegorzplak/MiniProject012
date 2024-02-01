@@ -1,0 +1,38 @@
+﻿@page
+@model MiniProject012.Pages.Countries.CreateModel
+@{
+}
+
+<h1 class="m-3">New country</h1>
+
+<form method="post">
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Country Name</label>
+        <div class="col-sm-6">
+            <input class="form-control" asp-for="CountryName" />
+            <span asp-validation-for="CountryName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Area</label>
+        <div class="col-sm-6">
+            <input class="form-control" asp-for="Area" />
+            <span asp-validation-for="Area" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Population</label>
+        <div class="col-sm-6">
+            <input class="form-control" asp-for="Population" />
+            <span asp-validation-for="Population" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <div class="col-sm-3">
+            <a class="btn btn-outline-primary" href="/Countries/Index" role="button">Cancel</a>
+        </div>
+    </div>
+</form>

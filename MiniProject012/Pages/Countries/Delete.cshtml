@@ -1,0 +1,29 @@
+﻿@page
+@using System.Data.SqlClient
+
+@{
+    string id = Request.Query["id"];
+    try
+    {
+        string connectionString = "Data Source=LAPTOP-2JK6GIJ7\\SQLEXPRESS;Initial Catalog=MiniProjects;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+            string sql = "DELETE FROM MiniProject012_Countries WHERE id = @id";
+
+            using (SqlCommand cmd = new SqlCommand(sql, connection))
+            {
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+            }
+
+        }
+    }
+    catch (Exception e)
+    {
+        //errorMessage = e.Message;
+        //return;
+    }
+
+    Response.Redirect("/Countries/Index");
+}
